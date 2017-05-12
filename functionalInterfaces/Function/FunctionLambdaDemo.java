@@ -1,37 +1,28 @@
 package functionalInterfaces.Function;
 
-import java.util.Arrays;
-import java.util.function.Consumer;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class FunctionLambdaDemo {
 	private static String name;
 	private static String name2= "";
+	private static String fullname;
 
 	public static void main(String[] args) {
-		addName.accept("kranthi");
-		System.out.println(name);
-	
-		Arrays.asList(stringToInteger.apply("kumar")).forEach(System.out::println);
+		System.out.println(addName.apply(name, "kranthi"));
+		System.out.println(addName.apply(fullname, "kranthi kumar"));
+		name2 = toUpperCase.andThen(getFirstName).apply(addName.apply(fullname, "kranthi kumar"));
+		System.out.println(name2);
 		
-		for(char c: stringToInteger.apply(name)) {
-			System.out.println(c);	
-		}
-		System.out.println(charToString.apply(stringToInteger.apply("shanker")));
+		
 	}
 
-	static Consumer<String> addName = s -> name = s;
-
-	static Function<String, char[]> stringToInteger = (s) -> {
-		char[] c = s.toCharArray();
-		return c;
+	static BiFunction<String, String, String> addName = (String name, String passingName) -> {
+		return name = passingName;
 	};
 	
-	static Function<char[], String> charToString = c-> {
-		for(char c1 : c) {
-			name2 = name2+c1;
-		}
-		return name2;
-	};
+	static Function<String, String> toUpperCase = s1 -> s1.toUpperCase();
+	static Function<String, String> getFirstName = s2 -> s2.substring(0, s2.indexOf(' '));
+
 
 }
