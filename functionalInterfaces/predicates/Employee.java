@@ -31,7 +31,7 @@ public class Employee {
 	public double getSalary() {
 		return salary;
 	}
-	public long getPhoneNo() {
+	public Long getPhoneNo() {
 		return phoneNo;
 	}
 	@Override

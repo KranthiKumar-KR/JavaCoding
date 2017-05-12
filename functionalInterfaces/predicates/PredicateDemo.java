@@ -54,7 +54,7 @@ public class PredicateDemo {
 		// to obtain list of employees whose age is greater than 27
 		System.out.println("List employees whose age is less than or equal to 27");
 		employees.forEach(emp -> {
-			if(FunctionalInterfaces.negation_youngerThan27.test(emp.getAge())) {
+			if (FunctionalInterfaces.negation_youngerThan27.test(emp.getAge())) {
 				System.out.println(emp.getName());
 			}
 		});
@@ -77,6 +77,15 @@ public class PredicateDemo {
 		employees.forEach(e -> highPaidNHighlevel(e, FunctionalInterfaces.highSalaryORHighLevel));
 		System.out.println();
 
+		// to find out if the length of the phone number is valid or not using
+		// longPredicate
+		System.out.println("list of employees whose phone numbers are valid");
+		employees.forEach(emp -> {
+			if (FunctionalInterfaces.noLengthGreaterThan10.test(emp.getPhoneNo())) {
+				System.out.println(emp.getName());
+			}
+		});
+		System.out.println();
 	}
 
 	public static void highPaidEmps(Employee e, Predicate<Employee> predicateCondition) {
