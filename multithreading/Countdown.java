@@ -6,10 +6,10 @@ public class Countdown {
 
 	public void doCountdown() {
 		switch (Thread.currentThread().getName()) {
-		case "Thread 1":
+		case "Thread-0":
 			color = ThreadColor.ANSI_BLUE;
 			break;
-		case "Thread 2":
+		case "Thread-1":
 			color = ThreadColor.ANSI_GREEN;
 			break;
 		default:
